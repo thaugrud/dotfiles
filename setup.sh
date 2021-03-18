@@ -20,6 +20,9 @@ defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 0
 # Show all filename extensions in Finder by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Show all hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
 # Show Path Bar in Finder
 defaults write com.apple.finder ShowPathbar -bool true
 
@@ -54,7 +57,7 @@ xcode-select --install
 
 if test ! $(which brew); then
     echo "Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
     echo "Homebrew is already installed!"
 fi
@@ -66,7 +69,7 @@ echo "Installing Zsh..."
 brew install zsh
 
 echo "Installing Heroku CLI..."
-brew install heroku
+brew install heroku/brew/heroku
 
 echo "Installing Azure CLI... "
 brew install azure-cli
@@ -76,6 +79,9 @@ brew install kubectl
 
 echo "Installing AWS CLI..."
 brew install awscli
+
+echo "Installing Terraform CLI..."
+brew install terraform
 
 echo "Installing Node..."
 brew install node
@@ -97,6 +103,7 @@ echo "Installing apps with cask..."
 apps=(
     iterm2
     alfred
+    mongodb-compass
     google-chrome
     firefox
     visual-studio-code

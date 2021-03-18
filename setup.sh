@@ -113,6 +113,7 @@ apps=(
     microsoft-teams
     docker
     lastpass
+    postman
 )
 
 brew install --cask --appdir="/Applications" ${apps[@]}

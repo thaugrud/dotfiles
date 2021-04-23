@@ -71,7 +71,7 @@ echo "Installing AWS CLI..."
 brew install awscli
 
 echo "Installing Terraform CLI..."
-brew install terraform
+brew install tfenv
 
 echo "Installing Node..."
 brew install node

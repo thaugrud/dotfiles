@@ -70,14 +70,17 @@ brew install kubectl
 echo "Installing AWS CLI..."
 brew install awscli
 
+echo "Installing AWS vault..."
+brew install aws-vault
+
 echo "Installing Terraform CLI..."
 brew install tfenv
 
-echo "Installing Node..."
-brew install node
+echo "Installing Nvm..."
+brew install nvm
 
-echo "Installing Python3..."
-brew install python3
+echo "Installing Pyenv..."
+brew install pyenv
 
 echo "Installing Git..."
 brew install git

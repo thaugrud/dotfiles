@@ -1,6 +1,85 @@
 #!/usr/bin/env bash
 
+echo "Installing Xcode CLI..."
+xcode-select --install
+
+if test ! $(which brew); then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+    echo "Homebrew is already installed!"
+fi
+
+echo "Updating Homebrew..."
+brew update
+
+echo "Installing Zsh..."
+brew install zsh
+
+echo "Installing Heroku CLI..."
+brew install heroku/brew/heroku
+
+echo "Installing Azure CLI... "
+brew install azure-cli
+
+echo "Installing Kubernetes CLI..."
+brew install kubectl
+
+echo "Installing AWS CLI..."
+brew install awscli
+
+echo "Installing AWS vault..."
+brew install aws-vault
+
+echo "Installing Terraform CLI..."
+brew install tfenv
+
+echo "Installing Nvm..."
+brew install nvm
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+echo "Installing Pyenv..."
+brew install pyenv
+
+echo "Installing apps with cask..."
+apps=(
+    iterm2
+    alfred
+    mongodb-compass
+    google-chrome
+    firefox
+    visual-studio-code
+    intellij-idea
+    spotify
+    slack
+    microsoft-teams
+    docker
+    lastpass
+    postman
+)
+
+brew install --cask --appdir="/Applications" ${apps[@]}
+
+echo "Installing Oh My Zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Creating an SSH key..."
+ssh-keygen -t rsa -b 4096
+
+echo "Cleaning up..."
+brew cleanup
+
 echo "Setting Mac settings..."
+git config --global user.name "Thomas H"
+git config --global user.email "itmethomas@gmail.com"
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+
 # Enable three finger drag
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
 
@@ -41,83 +120,6 @@ defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Incomplete"
 
 killall Finder
-
-echo "Installing Xcode CLI..."
-xcode-select --install
-
-if test ! $(which brew); then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-    echo "Homebrew is already installed!"
-fi
-
-echo "Updating Homebrew..."
-brew update
-
-echo "Installing Zsh..."
-brew install zsh
-
-echo "Installing Heroku CLI..."
-brew install heroku/brew/heroku
-
-echo "Installing Azure CLI... "
-brew install azure-cli
-
-echo "Installing Kubernetes CLI..."
-brew install kubectl
-
-echo "Installing AWS CLI..."
-brew install awscli
-
-echo "Installing AWS vault..."
-brew install aws-vault
-
-echo "Installing Terraform CLI..."
-brew install tfenv
-
-echo "Installing Nvm..."
-brew install nvm
-
-echo "Installing Pyenv..."
-brew install pyenv
-
-echo "Installing Git..."
-brew install git
-
-git config --global user.name "Thomas H"
-git config --global user.email "itmethomas@gmail.com"
-git config --global alias.co checkout
-git config --global alias.ci commit
-git config --global alias.st status
-git config --global alias.br branch
-
-echo "Installing apps with cask..."
-apps=(
-    iterm2
-    alfred
-    mongodb-compass
-    google-chrome
-    firefox
-    visual-studio-code
-    intellij-idea
-    spotify
-    slack
-    microsoft-teams
-    docker
-    lastpass
-    postman
-)
-
-brew install --cask --appdir="/Applications" ${apps[@]}
-
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "Creating an SSH key..."
-ssh-keygen -t rsa -b 4096
-
-echo "Cleaning up..."
-brew cleanup
+killall Dock
 
 echo "Setup complete!"

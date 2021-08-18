@@ -59,6 +59,7 @@ apps=(
     docker
     lastpass
     postman
+    notion
 )
 
 brew install --cask --appdir="/Applications" ${apps[@]}

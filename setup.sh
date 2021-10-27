@@ -13,9 +13,6 @@ fi
 echo "Updating Homebrew..."
 brew update
 
-echo "Installing Zsh..."
-brew install zsh
-
 echo "Installing Heroku CLI..."
 brew install heroku/brew/heroku
 

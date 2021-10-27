@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-echo "Installing Xcode CLI..."
-xcode-select --install
+# echo "Installing Xcode CLI..."
+# xcode-select --install
 
-if test ! $(which brew); then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-    echo "Homebrew is already installed!"
-fi
+# if test ! $(which brew); then
+#     echo "Installing Homebrew..."
+#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# else
+#     echo "Homebrew is already installed!"
+# fi
 
 echo "Updating Homebrew..."
 brew update
@@ -31,12 +31,12 @@ brew install aws-vault
 echo "Installing Terraform CLI..."
 brew install tfenv
 
-echo "Installing Nvm..."
-brew install nvm
+# echo "Installing Nvm..."
+# brew install nvm
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 echo "Installing Pyenv..."
 brew install pyenv
@@ -78,11 +78,11 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.br branch
 
-# Enable three finger drag
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+# Enable three finger drag - not working M1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
 
-# Enable tap to click
-defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 0
+# Enable tap to click - not working M1
+# defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 0
 
 # Show all filename extensions in Finder by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -90,14 +90,14 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Show all hidden files
 defaults write com.apple.finder AppleShowAllFiles YES
 
-# Show Path Bar in Finder
-defaults write com.apple.finder ShowPathbar -bool true
+# Show Path Bar in Finder - not working
+# defaults write com.apple.finder ShowPathbar -bool true
 
 # Show Status Bar in Finder
-defaults write com.apple.finder ShowStatusBar -bool true
+# defaults write com.apple.finder ShowStatusBar -bool true
 
 # Use column view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle Clmv
+# defaults write com.apple.finder FXPreferredViewStyle Clmv
 
 # Avoiding the creation of .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
